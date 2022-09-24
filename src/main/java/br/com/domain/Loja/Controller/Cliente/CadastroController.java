@@ -1,9 +1,9 @@
 package br.com.domain.Loja.Controller.Cliente;
 
 import br.com.domain.Loja.Models.Cliente;
-import br.com.domain.Loja.Repositories.ClienteRepository;
 import br.com.domain.Loja.Services.ClienteService;
-import br.com.domain.Loja.Util.Contraints.ClienteConstraints;
+import br.com.domain.Loja.Util.Contraints.Cliente.CPFConstraints;
+import br.com.domain.Loja.Util.Contraints.Cliente.UpperConstraints;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
@@ -11,10 +11,8 @@ import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Controller;
 
-import javax.annotation.PostConstruct;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -25,7 +23,10 @@ public class CadastroController implements Initializable {
     private ClienteService clienteService;
 
     @Autowired
-    private ClienteConstraints clienteConstraints;
+    private CPFConstraints clienteConstraints;
+
+    @Autowired
+    private UpperConstraints upperConstraints;
 
     @FXML
     private Label labelIdCliente;
@@ -42,23 +43,24 @@ public class CadastroController implements Initializable {
     @FXML
     private Button buttonSave;
 
-    private Cliente cliente = new Cliente();
-
     @FXML
     private AnchorPane anchorPaneEndereco;
 
 
     public void buttonSaveAction(){
+        Cliente cliente = new Cliente();
         cliente.setNome(fieldName.getText());
         cliente.setCpf(fieldCPF.getText());
 
-
         Cliente clienteRegistered = clienteService.Register(cliente);
         labelIdCliente.setText(String.valueOf(clienteRegistered.getId()));
+        anchorPaneEndereco.setDisable(false);
     }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
+        upperConstraints.upperFirstLetter(fieldName);
+        clienteConstraints.setTextCpf(fieldCPF);
         clienteConstraints.cpfExist(fieldCPF, labelErrorCPF);
     }
 }
