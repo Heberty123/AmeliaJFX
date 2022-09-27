@@ -3,7 +3,6 @@ package br.com.domain.Loja.Util.Contraints.Cliente;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import org.springframework.stereotype.Service;
-
 import java.util.Arrays;
 import java.util.List;
 import java.util.Locale;
@@ -17,16 +16,21 @@ public class UpperConstraints {
         txt.textProperty().addListener((obs, oldValue, newValue) -> {
             if (!newValue.isBlank()) {
 
+                if(!newValue.contains("  ")){
+                    if(!(newValue.charAt(newValue.length() - 1) == ' ')){
 
+                            String nomes[] = newValue.split(" ");
 
+                            String uppers = Arrays.stream(nomes).map(n -> n.substring(0, 1).toUpperCase() + n.substring(1))
+                                    .collect(Collectors.joining(" "));
 
-                String nomes[] = newValue.split(" ");
+                            txt.setText(uppers);
+                    }
+                }
+                else {
+                    txt.setText(oldValue);
+                }
 
-                String uppers = Arrays.stream(nomes).map(n -> n.substring(0, 1).toUpperCase() + n.substring(1))
-                        .collect(Collectors.joining(" "));
-
-
-                txt.setText(other);
             }
         });
     }

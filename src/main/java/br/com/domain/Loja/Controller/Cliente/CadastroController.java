@@ -1,6 +1,7 @@
 package br.com.domain.Loja.Controller.Cliente;
 
 import br.com.domain.Loja.Models.Cliente;
+import br.com.domain.Loja.Models.Endereco;
 import br.com.domain.Loja.Services.ClienteService;
 import br.com.domain.Loja.Util.Contraints.Cliente.CPFConstraints;
 import br.com.domain.Loja.Util.Contraints.Cliente.UpperConstraints;
@@ -8,6 +9,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -43,6 +45,30 @@ public class CadastroController implements Initializable {
     @FXML
     private Button buttonSave;
 
+    /* Endereços */
+
+    @FXML
+    private TextField txtCEP;
+
+    @FXML
+    private TextField txtLogradouro;
+
+    @FXML
+    private TextField txtNumero;
+
+    @FXML
+    private TextField txtBairro;
+
+    @FXML
+    private TextField txtCidade;
+
+    @FXML
+    private TextField txtEstado;
+
+
+    @FXML
+    private TableView<Endereco> enderecos;
+
     @FXML
     private AnchorPane anchorPaneEndereco;
 
@@ -50,7 +76,7 @@ public class CadastroController implements Initializable {
     public void buttonSaveAction(){
         Cliente cliente = new Cliente();
         cliente.setNome(fieldName.getText());
-        cliente.setCpf(fieldCPF.getText());
+        cliente.setCpf(fieldCPF.getText().replace(".", "").replace("-", ""));
 
         Cliente clienteRegistered = clienteService.Register(cliente);
         labelIdCliente.setText(String.valueOf(clienteRegistered.getId()));
