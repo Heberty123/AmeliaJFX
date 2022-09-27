@@ -14,25 +14,28 @@
       <Label layoutX="43.0" layoutY="82.0" text="Name" AnchorPane.leftAnchor="43.0" />
       <Label layoutX="43.0" layoutY="139.0" text="cpf" />
       <Button fx:id="buttonSave" layoutX="141.0" layoutY="216.0" mnemonicParsing="false" onAction="#buttonSaveAction" text="Salvar" />
-      <AnchorPane fx:id="anchorPaneEndereco" disable="true" layoutX="237.0" layoutY="443.0" prefHeight="414.0" prefWidth="1310.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane fx:id="anchorPaneEndereco" disable="false" layoutX="237.0" layoutY="443.0" prefHeight="507.0" prefWidth="1310.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
-            <TextField layoutX="309.0" layoutY="45.0" />
-            <Label layoutX="309.0" layoutY="21.0" text="Endereços" />
-            <TextField layoutX="482.0" layoutY="45.0" />
-            <Label layoutX="482.0" layoutY="21.0" text="Endereços" />
-            <TextField layoutX="657.0" layoutY="45.0" />
-            <Label layoutX="657.0" layoutY="21.0" text="Endereços" />
-            <TextField layoutX="834.0" layoutY="45.0" />
-            <Label layoutX="834.0" layoutY="21.0" text="Endereços" />
-            <TableView layoutX="28.0" layoutY="113.0" prefHeight="260.0" prefWidth="1250.0">
+            <TextField fx:id="txtLogradouro" layoutX="309.0" layoutY="45.0" />
+            <Label layoutX="309.0" layoutY="21.0" text="Logradouro" />
+            <TextField fx:id="txtNumero" layoutX="482.0" layoutY="45.0" prefHeight="25.0" prefWidth="55.0" />
+            <Label layoutX="482.0" layoutY="21.0" text="Numero" />
+            <TextField fx:id="txtBairro" layoutX="571.0" layoutY="45.0" />
+            <Label layoutX="571.0" layoutY="21.0" text="Bairro" />
+            <TextField fx:id="txtCidade" layoutX="747.0" layoutY="45.0" />
+            <Label layoutX="747.0" layoutY="21.0" text="Cidade" />
+            <TableView fx:id="enderecos" layoutX="28.0" layoutY="113.0" prefHeight="358.0" prefWidth="1250.0">
               <columns>
                 <TableColumn prefWidth="75.0" text="C1" />
                 <TableColumn prefWidth="75.0" text="C2" />
               </columns>
             </TableView>
-            <TextField layoutX="46.0" layoutY="45.0" />
+            <TextField fx:id="txtCEP" layoutX="46.0" layoutY="45.0" />
             <Label layoutX="46.0" layoutY="21.0" text="CEP" />
-            <Button layoutX="211.0" layoutY="45.0" mnemonicParsing="false" text="Buscar" />
+            <Button layoutX="211.0" layoutY="45.0" mnemonicParsing="false" onAction="#buscaCEP" text="Buscar" />
+            <TextField fx:id="txtEstado" layoutX="925.0" layoutY="45.0" />
+            <Label layoutX="925.0" layoutY="21.0" text="Estado" />
+            <Button layoutX="1098.0" layoutY="45.0" mnemonicParsing="false" onAction="#salvarEndereco" text="Salvar" />
          </children>
       </AnchorPane>
       <Label layoutX="43.0" layoutY="48.0" text="Id: " />

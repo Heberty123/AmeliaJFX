@@ -16,13 +16,15 @@ public class Endereco {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String rua;
+    private String logradouro;
 
     private int numero;
 
     private String bairro;
 
-    private String cidade;
+    private String localidade;
+
+    private String uf;
 
     private String cep;
 
@@ -34,5 +36,22 @@ public class Endereco {
 
     @ManyToOne
     private Cliente cliente;
+
+    @Override
+    public String toString() {
+        return "Endereco{" +
+                "id=" + id +
+                ", logradouro='" + logradouro + '\'' +
+                ", numero=" + numero +
+                ", bairro='" + bairro + '\'' +
+                ", localidade='" + localidade + '\'' +
+                ", uf='" + uf + '\'' +
+                ", cep='" + cep + '\'' +
+                ", tipoEntrega=" + tipoEntrega +
+                ", telefone='" + telefone + '\'' +
+                ", celular='" + celular + '\'' +
+                ", cliente=" + cliente +
+                '}';
+    }
 
 }
