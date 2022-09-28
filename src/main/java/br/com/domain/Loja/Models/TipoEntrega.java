@@ -2,7 +2,7 @@ package br.com.domain.Loja.Models;
 
 public enum TipoEntrega {
 
-    CASA,
+    RESIDENCIA,
     APARTAMENTO,
     CONDOMINIO_FECHADO,
     TRABALHO

@@ -30,8 +30,8 @@ public class API {
         HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
 
         if(response.statusCode() != 400){
-            Endereco endereco = (Endereco) objectMapper.readValue(response.body(), c);
-            return (T) endereco;
+            T object =  objectMapper.readValue(response.body(), c);
+            return object;
         }
         else {
             return null;
