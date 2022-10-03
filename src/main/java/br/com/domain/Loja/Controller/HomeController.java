@@ -18,9 +18,15 @@ import java.io.IOException;
 public class HomeController {
     @Value("classpath:/gui/Cliente/Cadastro.fxml")
     private Resource cadastroCliente;
+
+    @Value("classpath:/gui/Cliente/Buscar.fxml")
+    private Resource buscarCliente;
     @FXML
     private MenuItem itemCadastroCliente;
+    @FXML
+    private MenuItem itemBuscarCliente;
     private ApplicationContext applicationContext;
+
 
     public HomeController(ApplicationContext applicationContext){
         this.applicationContext = applicationContext;
@@ -28,6 +34,10 @@ public class HomeController {
 
     public void itemCadastroClienteAction() throws IOException {
         ChangeFXML(cadastroCliente);
+    }
+
+    public void itemBuscarClienteAction() throws IOException {
+        ChangeFXML(buscarCliente);
     }
 
     public void ChangeFXML(Resource absoluteName) throws IOException {

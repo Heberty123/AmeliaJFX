@@ -3,7 +3,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
@@ -28,8 +27,16 @@
             <Label layoutX="326.0" layoutY="84.0" text="Cidade" />
             <TableView fx:id="enderecos" layoutX="29.0" layoutY="151.0" prefHeight="383.0" prefWidth="1250.0">
               <columns>
-                <TableColumn prefWidth="75.0" text="C1" />
-                <TableColumn prefWidth="75.0" text="C2" />
+                <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="Id" />
+                <TableColumn fx:id="tableColumnLogradouro" prefWidth="220.0" text="Logradouro" />
+                  <TableColumn fx:id="tableColumnNumero" prefWidth="75.0" text="Numero" />
+                  <TableColumn fx:id="tableColumnBairro" prefWidth="200.0" text="Bairro" />
+                  <TableColumn fx:id="tableColumnLocalidade" prefWidth="150.0" text="Localidade" />
+                  <TableColumn fx:id="tableColumnUF" prefWidth="75.0" text="UF" />
+                  <TableColumn fx:id="tableColumnCEP" prefWidth="100.0" text="CEP" />
+                  <TableColumn fx:id="tableColumnTipoEntrega" prefWidth="110.0" text="Tipo de Entrega" />
+                  <TableColumn fx:id="tableColumnTelefone" prefWidth="120.0" text="Telefone" />
+                  <TableColumn fx:id="tableColumnCelular" prefWidth="120.0" text="Celular" />
               </columns>
             </TableView>
             <TextField fx:id="txtCEP" layoutX="47.0" layoutY="45.0" />
@@ -42,7 +49,7 @@
             <Label layoutX="668.0" layoutY="84.0" text="Tipo entrega" />
             <ComboBox fx:id="comboBoxTipoEntrega" layoutX="667.0" layoutY="109.0" prefWidth="150.0" />
             <ComboBox fx:id="comboBoxEstado" layoutX="500.0" layoutY="108.0" prefWidth="150.0" />
-            <TextField fx:id="txtCelular1" layoutX="645.0" layoutY="45.0" prefHeight="25.0" prefWidth="102.0" />
+            <TextField fx:id="txtNumero" layoutX="645.0" layoutY="45.0" prefHeight="25.0" prefWidth="102.0" />
             <Label layoutX="653.0" layoutY="21.0" text="Número" />
             <TextField fx:id="txtCelular2" layoutX="837.0" layoutY="109.0" prefHeight="25.0" prefWidth="307.0" />
             <Label layoutX="837.0" layoutY="84.0" text="Descrição" />
@@ -51,6 +58,5 @@
       <Label layoutX="43.0" layoutY="48.0" text="Id: " />
       <Label fx:id="labelIdCliente" layoutX="65.0" layoutY="48.0" />
       <Label fx:id="labelErrorCPF" layoutX="211.0" layoutY="165.0" />
-      <ListView layoutX="507.0" layoutY="86.0" prefHeight="229.0" prefWidth="286.0" />
    </children>
 </AnchorPane>

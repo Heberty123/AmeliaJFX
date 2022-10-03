@@ -9,11 +9,11 @@ import lombok.*;
 
 
 @Entity
-@Getter @Setter
-@AllArgsConstructor @NoArgsConstructor
+@Data
 public class Endereco {
 
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     private String logradouro;
@@ -37,6 +37,9 @@ public class Endereco {
     @ManyToOne
     private Cliente cliente;
 
+    public Endereco(){}
+
+
     @Override
     public String toString() {
         return "Endereco{" +
@@ -50,8 +53,6 @@ public class Endereco {
                 ", tipoEntrega=" + tipoEntrega +
                 ", telefone='" + telefone + '\'' +
                 ", celular='" + celular + '\'' +
-                ", cliente=" + cliente +
                 '}';
     }
-
 }
