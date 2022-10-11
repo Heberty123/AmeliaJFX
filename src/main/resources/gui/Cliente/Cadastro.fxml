@@ -15,7 +15,7 @@
       <Label layoutX="43.0" layoutY="82.0" text="Name" AnchorPane.leftAnchor="43.0" />
       <Label layoutX="43.0" layoutY="139.0" text="cpf" />
       <Button fx:id="buttonSave" layoutX="211.0" layoutY="161.0" mnemonicParsing="false" onAction="#buttonSaveAction" text="Salvar" />
-      <AnchorPane fx:id="anchorPaneEndereco" disable="false" layoutX="237.0" layoutY="443.0" prefHeight="573.0" prefWidth="1310.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+      <AnchorPane fx:id="anchorPaneEndereco" disable="true" layoutX="237.0" layoutY="443.0" prefHeight="573.0" prefWidth="1310.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
          <children>
             <TextField fx:id="txtLogradouro" layoutX="309.0" layoutY="45.0" prefHeight="25.0" prefWidth="307.0" />
             <Label layoutX="309.0" layoutY="21.0" text="Logradouro" />

@@ -16,11 +16,14 @@ public class ClienteService {
 
     @Autowired
     private ClienteRepository clienteRepository;
-
     @Autowired
     private EnderecoRepository enderecoRepository;
+    @Autowired
+    private KillCaseSensitive caseSensitive;
 
-    public Cliente Register(Cliente cliente){
+
+    public Cliente Register(Cliente cliente) throws IllegalAccessException {
+        caseSensitive.everthingToUpperCase(cliente);
         Cliente clienteRegistered = clienteRepository.save(cliente);
         return clienteRegistered;
     }

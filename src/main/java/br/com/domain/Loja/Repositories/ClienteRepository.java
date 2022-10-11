@@ -14,7 +14,7 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
     boolean existsByCpf(String newValue);
 
     @Query("SELECT c FROM Cliente c WHERE c.nome LIKE %:nome%")
-    List<Cliente> findClienteByNomeEqual(@Param("nome") String nome);
+    List<Cliente> findClienteByNomeContaining(@Param("nome") String nome);
 
 
 }

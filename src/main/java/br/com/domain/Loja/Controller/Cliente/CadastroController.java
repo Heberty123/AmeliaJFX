@@ -45,6 +45,9 @@ public class CadastroController implements Initializable {
 
     /* Initial */
 
+
+    private Cliente cliente = new Cliente();
+
     @FXML
     private Label labelIdCliente;
 
@@ -117,14 +120,17 @@ public class CadastroController implements Initializable {
 
 
 
-    public void buttonSaveAction(){
-        Cliente cliente = new Cliente();
+    public void buttonSaveAction() throws IllegalAccessException {
         cliente.setNome(fieldName.getText());
         cliente.setCpf(fieldCPF.getText().replace(".", "").replace("-", ""));
 
-        Cliente clienteRegistered = clienteService.Register(cliente);
-        labelIdCliente.setText(String.valueOf(clienteRegistered.getId()));
-        anchorPaneEndereco.setDisable(false);
+        cliente = clienteService.Register(this.cliente);
+
+        if(cliente != null){
+            labelIdCliente.setText(String.valueOf(cliente.getId()));
+            anchorPaneEndereco.setDisable(false);
+        }
+
     }
 
     public void buscaCEP() throws IOException, InterruptedException {
