@@ -3,6 +3,7 @@ package br.com.domain.Loja.Services;
 import br.com.domain.Loja.StageInitializer;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ScrollPane;
 import javafx.scene.layout.AnchorPane;
@@ -31,6 +32,7 @@ public class ChangeView {
 
         Scene mainScene = StageInitializer.getScene();
         AnchorPane mainAnchor = (AnchorPane) ((ScrollPane) mainScene.getRoot()).getContent();
+
 
         Node mainMenu = mainAnchor.getChildren().get(0);
         mainAnchor.getChildren().clear();

@@ -34,7 +34,7 @@ public class HomeController {
     }
 
     public void itemBuscarClienteAction() throws IOException {
-        changeView.change(" /gui/Cliente/Buscar.fxml", x -> {});
+        changeView.change("/gui/Cliente/Buscar.fxml", x -> {});
     }
 
 
