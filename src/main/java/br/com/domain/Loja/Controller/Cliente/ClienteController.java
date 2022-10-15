@@ -1,5 +1,6 @@
 package br.com.domain.Loja.Controller.Cliente;
 
+import br.com.domain.Loja.Components.TableRowEndereco;
 import br.com.domain.Loja.Models.Cliente;
 import br.com.domain.Loja.Models.Endereco;
 import br.com.domain.Loja.Services.ClienteService;
@@ -33,7 +34,6 @@ public class ClienteController {
     private ClienteService clienteService;
 
     /* FXML */
-
     @FXML
     private Label labelName;
 
@@ -43,24 +43,17 @@ public class ClienteController {
     @FXML
     private ListView<AnchorPane> listViewEnderecos;
 
+    /* Components */
+
+    @Autowired
+    private TableRowEndereco tableRowEndereco;
+
+
+    /* Methods */
 
     public void buttonAction() throws IOException {
 
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("/gui/Cliente/Components/RowEndereco.fxml"));
-        AnchorPane newAnchor = loader.load();
-
-        ObservableList<Node> observableListNode = newAnchor.getChildren();
-        Button button1 = (Button) observableListNode.get(0);
-        button1.setText("Deu certo !!!!!");
-
-        newAnchor.getChildren().set(0, button1);
-
-
-        ObservableList<AnchorPane> observableList = listViewEnderecos.getItems();
-        observableList.add(newAnchor);
-
-        listViewEnderecos.setItems(observableList);
-
+        tableRowEndereco.getFormattedRowEndereco(new Endereco(), listViewEnderecos);
 
     }
 
