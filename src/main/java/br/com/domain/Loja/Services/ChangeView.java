@@ -43,4 +43,9 @@ public class ChangeView {
         initializingAction.accept(controller);
 
     }
+
+    public void showProduct(String barcode){
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(""));
+        loader.setControllerFactory(aClass -> applicationContext.getBean(aClass));
+    }
 }
