@@ -75,7 +75,11 @@ public class BuscarController implements Initializable {
                             try {
                                 changeView.change("/gui/Cliente/Cliente.fxml", (ClienteController controller) -> {
                                     controller.setCliente(cliente);
-                                    controller.updateView();
+                                    try {
+                                        controller.updateView();
+                                    } catch (IOException e) {
+                                        throw new RuntimeException(e);
+                                    }
                                 });
                             } catch (IOException e) {
                                 throw new RuntimeException(e);

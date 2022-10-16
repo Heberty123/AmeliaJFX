@@ -51,14 +51,14 @@ public class ClienteController {
 
     /* Methods */
 
-    public void buttonAction() throws IOException {
 
-        tableRowEndereco.getFormattedRowEndereco(new Endereco(), listViewEnderecos);
-
-    }
-
-    public void updateView(){
+    public void updateView() throws IOException {
         labelName.setText(cliente.getNome());
+        /*
+        List<Endereco> enderecos = clienteService.buscarEnderecosPorCliente(cliente.getId());
+        tableRowEndereco.getFormattedRowEndereco(enderecos, listViewEnderecos);
+
+         */
     }
 
 

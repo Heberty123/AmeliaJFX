@@ -1,7 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
@@ -21,48 +19,6 @@
           <RowConstraints maxHeight="65.0" minHeight="10.0" prefHeight="39.0" vgrow="SOMETIMES" />
           <RowConstraints maxHeight="53.0" minHeight="10.0" prefHeight="46.0" vgrow="SOMETIMES" />
         </rowConstraints>
-         <children>
-            <Label text="Id">
-               <padding>
-                  <Insets left="15.0" top="10.0" />
-               </padding>
-            </Label>
-            <Label text="Tipo_de_entrega" GridPane.columnIndex="2">
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-            </Label>
-            <Label text="Cep" GridPane.columnIndex="1">
-               <padding>
-                  <Insets left="15.0" top="10.0" />
-               </padding>
-            </Label>
-            <Label text="Logradouro/UF" GridPane.columnIndex="3">
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-            </Label>
-            <Label text="Localidade" GridPane.columnIndex="2" GridPane.rowIndex="1">
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-            </Label>
-            <Label text="Bairro" GridPane.columnIndex="3" GridPane.rowIndex="1">
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-            </Label>
-            <Label text="Numero: Celular" GridPane.columnIndex="2" GridPane.rowIndex="2">
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-            </Label>
-            <Label text="Telefone: Celular" GridPane.columnIndex="3" GridPane.rowIndex="2">
-               <padding>
-                  <Insets top="10.0" />
-               </padding>
-            </Label>
-         </children>
       </GridPane>
    </children>
 </AnchorPane>

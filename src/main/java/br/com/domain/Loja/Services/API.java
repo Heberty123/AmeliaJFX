@@ -13,8 +13,7 @@ import java.net.http.HttpResponse;
 @Service
 public class API {
 
-    @Autowired
-    private ObjectMapper objectMapper;
+    private ObjectMapper objectMapper = new ObjectMapper();
 
     public <T> T getAPI(URI uri, Class<T> c) throws IOException, InterruptedException {
 
