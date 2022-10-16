@@ -23,6 +23,12 @@ public class HomeController {
     @FXML
     private MenuItem itemBuscarCliente;
 
+    @FXML
+    private MenuItem itemCadastroProduto;
+
+    @FXML
+    private MenuItem ItemBuscarCliente;
+
     /* Services */
 
     @Autowired
@@ -35,6 +41,14 @@ public class HomeController {
 
     public void itemBuscarClienteAction() throws IOException {
         changeView.change("/gui/Cliente/Buscar.fxml", x -> {});
+    }
+
+    public void itemCadastroProdutoAction() throws IOException {
+        changeView.change("", x -> {});
+    }
+
+    public void itemBuscarProdutoAction() throws IOException {
+        changeView.change("", x -> {});
     }
 
 

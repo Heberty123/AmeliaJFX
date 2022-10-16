@@ -27,7 +27,6 @@ public class ClienteController {
 
     private Cliente cliente;
 
-
     /* Services */
 
     @Autowired
@@ -54,11 +53,9 @@ public class ClienteController {
 
     public void updateView() throws IOException {
         labelName.setText(cliente.getNome());
-        /*
         List<Endereco> enderecos = clienteService.buscarEnderecosPorCliente(cliente.getId());
         tableRowEndereco.getFormattedRowEndereco(enderecos, listViewEnderecos);
 
-         */
     }
 
 

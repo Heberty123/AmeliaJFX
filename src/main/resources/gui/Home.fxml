@@ -10,7 +10,7 @@
     <content>
         <AnchorPane prefHeight="382.0" prefWidth="573.0">
             <children>
-                <MenuBar layoutX="22.0" layoutY="22.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                <MenuBar layoutX="22.0" layoutY="22.0" prefHeight="25.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-27.0" AnchorPane.topAnchor="0.0">
                     <menus>
                         <Menu mnemonicParsing="false" text="Cliente">
                             <items>
@@ -18,11 +18,23 @@
                         <MenuItem fx:id="itemBuscarCliente" mnemonicParsing="false" onAction="#itemBuscarClienteAction" text="Buscar" />
                             </items>
                         </Menu>
-                        <Menu mnemonicParsing="false" text="Edit">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="Delete" />
-                            </items>
-                        </Menu>
+                  <Menu mnemonicParsing="false" text="Produtos">
+                    <items>
+                      <MenuItem fx:id="itemCadastroProduto" mnemonicParsing="false" onAction="#itemCadastroProdutoAction" text="Cadastrar" />
+                        <MenuItem fx:id="ItemBuscarCliente" mnemonicParsing="false" onAction="#itemBuscarProdutoAction" text="Buscar" />
+                    </items>
+                  </Menu>
+                        <Menu mnemonicParsing="false" text="Edit" />
+                  <Menu mnemonicParsing="false" text="Controle Estoque">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                  </Menu>
+                  <Menu mnemonicParsing="false" text="Dados">
+                    <items>
+                      <MenuItem mnemonicParsing="false" text="Action 1" />
+                    </items>
+                  </Menu>
                         <Menu mnemonicParsing="false" text="Help">
                             <items>
                                 <MenuItem mnemonicParsing="false" text="About" />
