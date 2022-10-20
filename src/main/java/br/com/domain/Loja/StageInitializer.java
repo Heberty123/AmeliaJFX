@@ -57,7 +57,7 @@ public class StageInitializer implements ApplicationListener<ChartApplication.St
             mainScene = new Scene(scrollPane);
 
 
-            mainScene.setOnKeyReleased((KeyEvent evento) -> {
+            mainScene.setOnKeyPressed((KeyEvent evento) -> {
 
                 if(evento.getCode() != KeyCode.ENTER){
                     long now = Instant.now().toEpochMilli();
@@ -69,11 +69,14 @@ public class StageInitializer implements ApplicationListener<ChartApplication.St
                     this.barcode.append(evento.getText());
                 }
                 else{
-                    Stage stagee = new Stage();
-                    stagee.setTitle(barcode.toString());
-                    stagee.show();
-                    System.out.println(barcode.toString());
-                    barcode.delete(0, barcode.length());
+                    if(barcode.length() > 10){
+                        Stage stagee = new Stage();
+                        stagee.setTitle(barcode.toString());
+                        stagee.show();
+                        System.out.println(barcode.toString());
+                        barcode.delete(0, barcode.length());
+                    }
+
                 }
             });
 

@@ -11,7 +11,6 @@ public class Produtos {
     private Long id;
 
     private String nome;
-
     @Lob
     private String descricao;
 

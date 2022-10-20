@@ -15,11 +15,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
-import javafx.util.Callback;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.web.client.RestTemplateBuilder;
 import org.springframework.stereotype.Controller;
-import org.springframework.transaction.annotation.Transactional;
 
 
 import java.io.IOException;
@@ -29,7 +26,7 @@ import java.util.List;
 import java.util.ResourceBundle;
 
 @Controller
-public class CadastroController implements Initializable {
+public class CadastroClienteController implements Initializable {
 
     /* Services */
 

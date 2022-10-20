@@ -2,12 +2,9 @@ package br.com.domain.Loja.Controller.Cliente;
 
 import br.com.domain.Loja.Controller.HomeController;
 import br.com.domain.Loja.Models.Cliente;
-import br.com.domain.Loja.Models.Endereco;
 import br.com.domain.Loja.Services.ChangeView;
 import br.com.domain.Loja.Services.ClienteService;
 import br.com.domain.Loja.Util.Contraints.Cliente.PesquisaRealConstraints;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -16,17 +13,14 @@ import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.util.Callback;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Controller;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.List;
 import java.util.ResourceBundle;
 
 @Controller
-public class BuscarController implements Initializable {
+public class BuscarClienteController implements Initializable {
 
 
     /* Services */

@@ -44,11 +44,11 @@ public class HomeController {
     }
 
     public void itemCadastroProdutoAction() throws IOException {
-        changeView.change("", x -> {});
+        changeView.change("/gui/Produto/Cadastro.fxml", x -> {});
     }
 
     public void itemBuscarProdutoAction() throws IOException {
-        changeView.change("", x -> {});
+        changeView.change("/gui/Produto/Buscar.fxml", x -> {});
     }
 
 
