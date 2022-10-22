@@ -2,9 +2,10 @@ package br.com.domain.Loja.Models;
 
 import lombok.Data;
 import javax.persistence.*;
+import java.math.BigDecimal;
 
 @Entity @Data
-public class Produtos {
+public class Produto {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -20,6 +21,5 @@ public class Produtos {
     @ManyToOne
     private Marca marca;
 
-    @OneToOne
-    private Preco preco;
+    private BigDecimal preco;
 }

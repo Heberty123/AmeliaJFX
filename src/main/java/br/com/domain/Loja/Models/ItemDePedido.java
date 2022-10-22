@@ -16,5 +16,5 @@ public class ItemDePedido {
     private Pedido pedido;
 
     @OneToOne
-    private Produtos produtos;
+    private Produto produtos;
 }

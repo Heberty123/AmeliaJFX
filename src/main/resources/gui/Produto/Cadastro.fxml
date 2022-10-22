@@ -6,20 +6,20 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="626.0" prefWidth="1115.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.domain.Loja.Controller.Produto.CadastroProdutoController">
    <children>
-      <Label fx:id="labelId" layoutX="36.0" layoutY="52.0" text="id" />
-      <Label layoutX="37.0" layoutY="79.0" text="nome" />
-      <Label layoutX="37.0" layoutY="133.0" text="Referência" />
-      <TextField fx:id="txtNome" layoutX="36.0" layoutY="100.0" />
-      <TextField fx:id="txtReferencia" layoutX="36.0" layoutY="156.0" />
-      <Label layoutX="37.0" layoutY="191.0" text="Código de Barra" />
-      <TextField fx:id="txtBarcode" layoutX="36.0" layoutY="214.0" />
-      <Label layoutX="37.0" layoutY="251.0" text="Marca" />
-      <ComboBox fx:id="choiceBoxMarca" layoutX="36.0" layoutY="274.0" prefWidth="150.0" />
-      <Label layoutX="37.0" layoutY="313.0" text="Preço" />
-      <TextField fx:id="txtPreco" layoutX="36.0" layoutY="336.0" />
-      <Button layoutX="133.0" layoutY="379.0" mnemonicParsing="false" onAction="#buttonSaveAction" text="Salvar" />
+      <Label fx:id="labelId" layoutX="36.0" layoutY="118.0" text="id" />
+      <Label layoutX="37.0" layoutY="145.0" text="nome" />
+      <Label layoutX="37.0" layoutY="199.0" text="Referência" />
+      <TextField fx:id="txtNome" layoutX="36.0" layoutY="166.0" />
+      <TextField fx:id="txtReferencia" layoutX="36.0" layoutY="222.0" />
+      <Label layoutX="37.0" layoutY="257.0" text="Código de Barra" />
+      <TextField fx:id="txtBarcode" layoutX="36.0" layoutY="280.0" />
+      <Label layoutX="37.0" layoutY="317.0" text="Marca" />
+      <ComboBox fx:id="comboBoxMarca" layoutX="36.0" layoutY="340.0" prefWidth="150.0" />
+      <Label layoutX="37.0" layoutY="379.0" text="Preço" />
+      <TextField fx:id="txtPreco" layoutX="36.0" layoutY="402.0" />
+      <Button layoutX="133.0" layoutY="445.0" mnemonicParsing="false" onAction="#buttonSaveAction" text="Salvar" />
+      <Label fx:id="labelInformation" layoutX="36.0" layoutY="72.0" />
    </children>
 </AnchorPane>

@@ -13,5 +13,5 @@ public class Marca {
     private String nome;
 
     @OneToMany(mappedBy = "marca")
-    private List<Produtos> produtos = new ArrayList<Produtos>();
+    private List<Produto> produtos = new ArrayList<Produto>();
 }
