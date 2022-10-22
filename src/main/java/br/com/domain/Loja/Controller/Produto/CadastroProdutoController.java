@@ -1,9 +1,10 @@
 package br.com.domain.Loja.Controller.Produto;
 
+import br.com.domain.Loja.Costumize.StringConverterMarca;
 import br.com.domain.Loja.Models.Marca;
 import br.com.domain.Loja.Models.Produto;
+import br.com.domain.Loja.Services.KillCaseSensitive;
 import br.com.domain.Loja.Services.ProdutoService;
-import br.com.domain.Loja.StageInitializer;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -11,10 +12,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Popup;
-import javafx.stage.PopupWindow;
-import org.controlsfx.control.NotificationPane;
-import org.controlsfx.control.Notifications;
+import javafx.util.StringConverter;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import java.math.BigDecimal;
@@ -28,6 +26,12 @@ public class CadastroProdutoController implements Initializable {
 
     @Autowired
     private ProdutoService produtoService;
+
+    @Autowired
+    private KillCaseSensitive caseSensitive;
+
+    @Autowired
+    private StringConverterMarca stringConverterMarca;
 
     /* FXML */
 
@@ -48,13 +52,14 @@ public class CadastroProdutoController implements Initializable {
 
     /* Methods */
 
-    public void buttonSaveAction(){
+    public void buttonSaveAction() throws IllegalAccessException {
         System.out.println("Teste");
         Produto produto = new Produto();
         produto.setNome(txtNome.getText());
         produto.setPreco(BigDecimal.valueOf(Long.valueOf(txtPreco.getText())));
         produto.setReferencia(txtReferencia.getText());
         produto.setMarca(comboBoxMarca.getValue());
+        caseSensitive.everthingToUpperCase(produto);
         produtoService.save(produto);
     }
 
@@ -65,7 +70,14 @@ public class CadastroProdutoController implements Initializable {
     }
 
     private void attComboBoxMarca(){
-        ObservableList<Marca> strings = FXCollections.observableArrayList(produtoService.getAllMarcas());
-        comboBoxMarca.setItems(strings);
+        ObservableList<Marca> marcas = FXCollections.observableArrayList(produtoService.getAllMarcas());
+        comboBoxMarca.setItems(marcas);
+        /*
+        comboBoxMarca.setCellFactory(marcaCellFactory);
+        */
+
+        comboBoxMarca.setValue(marcas.get(0));
+
+        comboBoxMarca.setConverter(stringConverterMarca);
     }
 }

@@ -13,14 +13,13 @@ public class KillCaseSensitive {
         Class<?> classe = object.getClass();
         Field[] campos = classe.getDeclaredFields();
 
-
         for(Field campo : campos){
 
-            if(campo.getType().equals(String.class)){
-                campo.setAccessible(true);
+            campo.setAccessible(true);
+
+            if(campo.getType().equals(String.class) && !(campo.get(object) == null)){
                 campo.set(object, campo.get(object).toString().toUpperCase());
             }
-
         }
     }
 
@@ -29,7 +28,6 @@ public class KillCaseSensitive {
 
 
         if(object instanceof Collection){
-
             for(Object obj : ((Collection<?>) object).toArray()){
 
                 Class<?> classe = obj.getClass();
@@ -38,9 +36,9 @@ public class KillCaseSensitive {
 
                 for(Field campo : campos){
 
-                    if(campo.getType().equals(String.class)){
-                        campo.setAccessible(true);
+                    campo.setAccessible(true);
 
+                    if(campo.getType().equals(String.class) && !(campo.get(obj) == null)){
 
                         String nomes[] = campo.get(obj).toString().toLowerCase().split(" ");
 
@@ -48,9 +46,7 @@ public class KillCaseSensitive {
                                 .collect(Collectors.joining(" "));
 
                         campo.set(obj, uppers);
-
                     }
-
                 }
             }
         }

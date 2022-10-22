@@ -4,7 +4,7 @@ import br.com.domain.Loja.Controller.HomeController;
 import br.com.domain.Loja.Models.Cliente;
 import br.com.domain.Loja.Services.ChangeView;
 import br.com.domain.Loja.Services.ClienteService;
-import br.com.domain.Loja.Util.Contraints.Cliente.PesquisaRealConstraints;
+import br.com.domain.Loja.Util.Contraints.Cliente.PesquisaRealCliente;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -30,7 +30,7 @@ public class BuscarClienteController implements Initializable {
     @Autowired
     private ClienteService clienteService;
     @Autowired
-    private PesquisaRealConstraints pequisaService;
+    private PesquisaRealCliente pequisaService;
 
     @Autowired
     private ChangeView changeView;

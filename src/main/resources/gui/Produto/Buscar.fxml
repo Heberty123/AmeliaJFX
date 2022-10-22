@@ -1,14 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="br.com.domain.Loja.Controller.Produto.BuscarProdutoController"
-            prefHeight="400.0" prefWidth="600.0">
 
+<AnchorPane prefHeight="653.0" prefWidth="959.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.domain.Loja.Controller.Produto.BuscarProdutoController">
+   <children>
+      <TextField fx:id="txtBuscar" layoutX="53.0" layoutY="129.0" prefHeight="25.0" prefWidth="849.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+      <ListView fx:id="listProduto" layoutX="30.0" layoutY="264.0" prefHeight="335.0" prefWidth="951.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
+   </children>
 </AnchorPane>

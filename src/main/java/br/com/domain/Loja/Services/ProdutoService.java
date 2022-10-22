@@ -6,6 +6,8 @@ import br.com.domain.Loja.Repositories.MarcaRepository;
 import br.com.domain.Loja.Repositories.ProdutoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
+
 import java.util.List;
 
 @Service

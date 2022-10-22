@@ -1,12 +1,10 @@
 package br.com.domain.Loja.Util.Contraints.Cliente;
 
 import br.com.domain.Loja.Models.Cliente;
-import br.com.domain.Loja.Models.Endereco;
 import br.com.domain.Loja.Repositories.ClienteRepository;
 import br.com.domain.Loja.Services.KillCaseSensitive;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.scene.control.Label;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +13,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class PesquisaRealConstraints {
+public class PesquisaRealCliente {
 
     @Autowired
     private ClienteRepository clienteRepository;
