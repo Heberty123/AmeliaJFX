@@ -6,6 +6,7 @@ import br.com.domain.Loja.Services.KillCaseSensitive;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,7 +21,7 @@ public class PesquisaRealProduto {
     @Autowired
     private KillCaseSensitive caseSensitive;
 
-    public void pesquisaByNome(TextField txt, ListView<Produto> list) {
+    public void pesquisaByNome(TextField txt, TableView<Produto> tableView) {
         txt.textProperty().addListener((obs, oldValue, newValue) -> {
 
             System.out.println("vc digitou: " + newValue);
@@ -28,21 +29,17 @@ public class PesquisaRealProduto {
             if(!(newValue.isBlank())){
                 List<Produto> produtos = produtoRepository.findProdutoByNomeContaining(newValue.toUpperCase());
 
-
-
                 try {
                     caseSensitive.changeToLowerToView(produtos);
                 } catch (IllegalAccessException e) {
                     throw new RuntimeException(e);
                 }
 
-
-
                 ObservableList<Produto> observableList = FXCollections.observableArrayList(produtos);
-                list.setItems(observableList);
+                tableView.setItems(observableList);
             }
             else
-                list.setItems(null);
+                tableView.setItems(null);
 
         });
     }

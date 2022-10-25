@@ -53,6 +53,8 @@ public class BuscarClienteController implements Initializable {
 
 
     private void clickRowAtTable(){
+
+
         tableView.setRowFactory(new Callback<TableView<Cliente>, TableRow<Cliente>>(){
 
             @Override
