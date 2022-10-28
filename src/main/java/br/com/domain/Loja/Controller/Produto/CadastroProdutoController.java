@@ -60,7 +60,12 @@ public class CadastroProdutoController implements Initializable {
         produto.setReferencia(txtReferencia.getText());
         produto.setMarca(comboBoxMarca.getValue());
         caseSensitive.everthingToUpperCase(produto);
-        produtoService.save(produto);
+        Produto produtoSaved = produtoService.save(produto);
+        if(produtoSaved != null){
+            String title = "Sign in";
+            String message = "Produto " + produto.getNome() + " cadastrado com sucesso";
+
+        }
     }
 
     @Override

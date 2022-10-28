@@ -6,12 +6,20 @@ import br.com.domain.Loja.Models.Cliente;
 import br.com.domain.Loja.Models.Produto;
 import br.com.domain.Loja.Services.ChangeView;
 import br.com.domain.Loja.Util.Contraints.Produto.PesquisaRealProduto;
+import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.value.ObservableValue;
+import javafx.collections.FXCollections;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
+import javafx.util.Builder;
 import javafx.util.Callback;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -51,10 +59,8 @@ public class BuscarProdutoController implements Initializable {
 
     /* Methods */
 
-
     private void clickRowAtTable() {
         tableView.setRowFactory(new Callback<TableView<Produto>, TableRow<Produto>>(){
-
             @Override
             public TableRow<Produto> call(TableView<Produto> param) {
                 TableRow<Produto> row = new TableRow<Produto>();
@@ -66,7 +72,14 @@ public class BuscarProdutoController implements Initializable {
 
                             Produto produto = row.getItem();
 
-                            System.out.println(produto.getNome());
+                            try {
+                                changeView.change("/gui/Produto/Produto.fxml", (ProdutoController controller) -> {
+                                    controller.setProduto(produto);
+                                    controller.updateView();
+                                });
+                            } catch (IOException e) {
+                                throw new RuntimeException(e);
+                            }
                         }
                     }
                 });
@@ -76,12 +89,16 @@ public class BuscarProdutoController implements Initializable {
     }
 
 
+
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         pesquisaService.pesquisaByNome(txtBuscar, tableView);
         initializeNodes();
         clickRowAtTable();
     }
+
 
 
     private void initializeNodes() {

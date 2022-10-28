@@ -57,6 +57,7 @@ public class StageInitializer implements ApplicationListener<ChartApplication.St
             Stage stage = event.getStage();
 
 
+            /* Read Barcode */
             stage.addEventHandler(KeyEvent.KEY_PRESSED, evento -> {
 
                     if (evento.getCode() != KeyCode.ENTER) {

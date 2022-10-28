@@ -24,7 +24,6 @@ public class PesquisaRealProduto {
     public void pesquisaByNome(TextField txt, TableView<Produto> tableView) {
         txt.textProperty().addListener((obs, oldValue, newValue) -> {
 
-            System.out.println("vc digitou: " + newValue);
 
             if(!(newValue.isBlank())){
                 List<Produto> produtos = produtoRepository.findProdutoByNomeContaining(newValue.toUpperCase());

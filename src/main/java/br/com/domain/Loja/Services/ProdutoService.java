@@ -22,7 +22,8 @@ public class ProdutoService {
         return marcaRepository.findAll();
     }
 
-    public void save(Produto produto) {
-        produtoRepository.save(produto);
+    public Produto save(Produto produto) {
+        Produto produtoSaved = produtoRepository.save(produto);
+        return produtoSaved;
     }
 }
