@@ -25,8 +25,11 @@ public class PesquisaRealProduto {
         txt.textProperty().addListener((obs, oldValue, newValue) -> {
 
 
+
             if(!(newValue.isBlank())){
                 List<Produto> produtos = produtoRepository.findProdutoByNomeContaining(newValue.toUpperCase());
+
+                System.out.println(produtos);
 
                 try {
                     caseSensitive.changeToLowerToView(produtos);

@@ -5,14 +5,20 @@ import br.com.domain.Loja.Models.Marca;
 import br.com.domain.Loja.Models.Produto;
 import br.com.domain.Loja.Services.KillCaseSensitive;
 import br.com.domain.Loja.Services.ProdutoService;
+import com.sun.javafx.iio.ImageMetadata;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Pos;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.util.Duration;
 import javafx.util.StringConverter;
+import org.controlsfx.control.Notifications;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import java.math.BigDecimal;
@@ -21,6 +27,7 @@ import java.util.ResourceBundle;
 
 @Controller
 public class CadastroProdutoController implements Initializable {
+
 
     /* Services */
 
@@ -61,11 +68,6 @@ public class CadastroProdutoController implements Initializable {
         produto.setMarca(comboBoxMarca.getValue());
         caseSensitive.everthingToUpperCase(produto);
         Produto produtoSaved = produtoService.save(produto);
-        if(produtoSaved != null){
-            String title = "Sign in";
-            String message = "Produto " + produto.getNome() + " cadastrado com sucesso";
-
-        }
     }
 
     @Override
@@ -81,7 +83,8 @@ public class CadastroProdutoController implements Initializable {
         comboBoxMarca.setCellFactory(marcaCellFactory);
         */
 
-        comboBoxMarca.setValue(marcas.get(0));
+        if(!marcas.isEmpty())
+            comboBoxMarca.setValue(marcas.get(0));
 
         comboBoxMarca.setConverter(stringConverterMarca);
     }

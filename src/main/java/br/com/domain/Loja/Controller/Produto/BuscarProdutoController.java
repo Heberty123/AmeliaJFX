@@ -55,7 +55,7 @@ public class BuscarProdutoController implements Initializable {
     @FXML
     private TableColumn<Produto, Long> tableColumnId;
     @FXML
-    private TableColumn<Produto, String> tableColumnNome;
+    private TableColumn<Produto, TextFlow> tableColumnNome;
 
     /* Methods */
 
@@ -89,7 +89,31 @@ public class BuscarProdutoController implements Initializable {
     }
 
 
+    private void setColorsAtContaingText(){
 
+        tableColumnNome.setCellValueFactory(e -> {
+
+            TextFlow txtFlow = new TextFlow();
+
+
+            for (char ch : e.getValue().getNome().toCharArray()) {
+
+                if(ch == txtBuscar.getText().toCharArray()[0]){
+                    System.out.println("chamei aqui color");
+                    Text txt = new Text(String.valueOf(ch));
+                    txt.setFill(Color.CYAN);
+                    txtFlow.getChildren().add(txt);
+                }
+                else {
+                    System.out.println("nãooooo chamei aqui color");
+                    Text txt = new Text(String.valueOf(ch));
+                    txtFlow.getChildren().add(txt);
+                }
+            }
+
+            return new SimpleObjectProperty<TextFlow>(txtFlow);
+        });
+    }
 
 
     @Override
@@ -97,6 +121,7 @@ public class BuscarProdutoController implements Initializable {
         pesquisaService.pesquisaByNome(txtBuscar, tableView);
         initializeNodes();
         clickRowAtTable();
+        setColorsAtContaingText();
     }
 
 
