@@ -91,28 +91,23 @@ public class BuscarProdutoController implements Initializable {
 
     private void setColorsAtContaingText(){
 
-        tableColumnNome.setCellValueFactory(e -> {
+        tableColumnNome.setCellValueFactory(new Callback<TableColumn.CellDataFeatures<Produto, TextFlow>, ObservableValue<TextFlow>>() {
+            @Override
+            public ObservableValue<TextFlow> call(TableColumn.CellDataFeatures<Produto, TextFlow> param) {
 
-            TextFlow txtFlow = new TextFlow();
+                TextFlow txtFlow = new TextFlow();
+                txtFlow.setPrefHeight(txtFlow.prefHeight(tableColumnNome.getWidth()) + 4);
+                char[] arrays = param.getValue().getNome().toCharArray();
 
+                for(int i = 0 ; i<param.getValue().getNome().length() ; i++){
 
-            for (char ch : e.getValue().getNome().toCharArray()) {
-
-                if(ch == txtBuscar.getText().toCharArray()[0]){
-                    System.out.println("chamei aqui color");
-                    Text txt = new Text(String.valueOf(ch));
-                    txt.setFill(Color.CYAN);
-                    txtFlow.getChildren().add(txt);
+                    if(Character.)
                 }
-                else {
-                    System.out.println("nãooooo chamei aqui color");
-                    Text txt = new Text(String.valueOf(ch));
-                    txtFlow.getChildren().add(txt);
-                }
+
+                return new SimpleObjectProperty<TextFlow>(txtFlow);
             }
-
-            return new SimpleObjectProperty<TextFlow>(txtFlow);
         });
+
     }
 
 
