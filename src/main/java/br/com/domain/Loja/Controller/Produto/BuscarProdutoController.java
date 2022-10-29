@@ -97,11 +97,47 @@ public class BuscarProdutoController implements Initializable {
 
                 TextFlow txtFlow = new TextFlow();
                 txtFlow.setPrefHeight(txtFlow.prefHeight(tableColumnNome.getWidth()) + 4);
+
+                /* ---------------------------------------------------------------------- */
+
+                StringBuilder sb = new StringBuilder();
                 char[] arrays = param.getValue().getNome().toCharArray();
+                boolean right = false;
 
                 for(int i = 0 ; i<param.getValue().getNome().length() ; i++){
 
-                    if(Character.)
+                    int j = i;
+                    for (char ch : txtBuscar.getText().toCharArray()) {
+
+                        if(!(j > arrays.length)) {
+
+                            sb.append(arrays[j]);
+
+                            if (sb.toString().equals(txtBuscar.getText())) {
+                                right = true;
+                                break;
+                            }
+
+                            j++;
+                        }
+                        else {
+                            break;
+                        }
+                    }
+
+                    if(right == true){
+                        Text txt1 = new Text(sb.toString());
+                        txt1.setFill(Color.GOLD);
+                        txtFlow.getChildren().add(txt1);
+                        i += (sb.length() -1);
+                        sb.delete(0, sb.length());
+                        right = false;
+                    }
+                    else {
+                        Text txt2 = new Text(String.valueOf(arrays[i]));
+                        txtFlow.getChildren().add(txt2);
+                        sb.delete(0, sb.length());
+                    }
                 }
 
                 return new SimpleObjectProperty<TextFlow>(txtFlow);
