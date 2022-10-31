@@ -17,6 +17,8 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+import javafx.scene.text.FontWeight;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.util.Builder;
@@ -97,6 +99,8 @@ public class BuscarProdutoController implements Initializable {
 
                 TextFlow txtFlow = new TextFlow();
                 txtFlow.setPrefHeight(txtFlow.prefHeight(tableColumnNome.getWidth()) + 4);
+                Font f = Font.font("Verdana", FontWeight.BOLD, 12);
+
 
                 /* ---------------------------------------------------------------------- */
 
@@ -104,16 +108,16 @@ public class BuscarProdutoController implements Initializable {
                 char[] arrays = param.getValue().getNome().toCharArray();
                 boolean right = false;
 
-                for(int i = 0 ; i<param.getValue().getNome().length() ; i++){
+                for(int i = 0 ; i<=param.getValue().getNome().length() -1 ; i++){
 
                     int j = i;
                     for (char ch : txtBuscar.getText().toCharArray()) {
 
-                        if(!(j > arrays.length)) {
+                        if(!(j > (arrays.length -1))) {
 
                             sb.append(arrays[j]);
 
-                            if (sb.toString().equals(txtBuscar.getText())) {
+                            if (sb.toString().toUpperCase().equals(txtBuscar.getText().toUpperCase() )) {
                                 right = true;
                                 break;
                             }
@@ -127,7 +131,8 @@ public class BuscarProdutoController implements Initializable {
 
                     if(right == true){
                         Text txt1 = new Text(sb.toString());
-                        txt1.setFill(Color.GOLD);
+                        txt1.setFill(Color.RED);
+                        txt1.setFont(f);
                         txtFlow.getChildren().add(txt1);
                         i += (sb.length() -1);
                         sb.delete(0, sb.length());
@@ -135,6 +140,7 @@ public class BuscarProdutoController implements Initializable {
                     }
                     else {
                         Text txt2 = new Text(String.valueOf(arrays[i]));
+                        txt2.setFont(f);
                         txtFlow.getChildren().add(txt2);
                         sb.delete(0, sb.length());
                     }
@@ -153,6 +159,7 @@ public class BuscarProdutoController implements Initializable {
         initializeNodes();
         clickRowAtTable();
         setColorsAtContaingText();
+        tableColumnNome.setStyle("-fx-font: 24 arial;");
     }
 
 

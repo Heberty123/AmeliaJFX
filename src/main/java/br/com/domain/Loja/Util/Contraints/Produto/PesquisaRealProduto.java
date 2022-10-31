@@ -3,11 +3,14 @@ package br.com.domain.Loja.Util.Contraints.Produto;
 import br.com.domain.Loja.Models.Produto;
 import br.com.domain.Loja.Repositories.ProdutoRepository;
 import br.com.domain.Loja.Services.KillCaseSensitive;
+import javafx.animation.RotateTransition;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.scene.control.ListView;
 import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
+import javafx.scene.transform.Rotate;
+import javafx.util.Duration;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -23,7 +26,6 @@ public class PesquisaRealProduto {
 
     public void pesquisaByNome(TextField txt, TableView<Produto> tableView) {
         txt.textProperty().addListener((obs, oldValue, newValue) -> {
-
 
 
             if(!(newValue.isBlank())){
