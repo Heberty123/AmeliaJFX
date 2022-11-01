@@ -1,48 +1,133 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Menu?>
-<?import javafx.scene.control.MenuBar?>
-<?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ScrollPane?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<ScrollPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.domain.Loja.Controller.HomeController">
-    <content>
-        <AnchorPane prefHeight="382.0" prefWidth="573.0">
-            <children>
-                <MenuBar layoutX="22.0" layoutY="22.0" prefHeight="25.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="-27.0" AnchorPane.topAnchor="0.0">
-                    <menus>
-                        <Menu mnemonicParsing="false" text="Cliente">
-                            <items>
-                                <MenuItem fx:id="itemCadastroCliente" mnemonicParsing="false" onAction="#itemCadastroClienteAction" text="Cadastrar" />
-                        <MenuItem fx:id="itemBuscarCliente" mnemonicParsing="false" onAction="#itemBuscarClienteAction" text="Buscar" />
-                            </items>
-                        </Menu>
-                  <Menu mnemonicParsing="false" text="Produtos">
-                    <items>
-                      <MenuItem fx:id="itemCadastroProduto" mnemonicParsing="false" onAction="#itemCadastroProdutoAction" text="Cadastrar" />
-                        <MenuItem fx:id="ItemBuscarCliente" mnemonicParsing="false" onAction="#itemBuscarProdutoAction" text="Buscar" />
-                    </items>
-                  </Menu>
-                        <Menu mnemonicParsing="false" text="Edit" />
-                  <Menu mnemonicParsing="false" text="Controle Estoque">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
-                  <Menu mnemonicParsing="false" text="Dados">
-                    <items>
-                      <MenuItem mnemonicParsing="false" text="Action 1" />
-                    </items>
-                  </Menu>
-                        <Menu mnemonicParsing="false" text="Help">
-                            <items>
-                                <MenuItem mnemonicParsing="false" text="About" />
-                            </items>
-                        </Menu>
-                    </menus>
-                </MenuBar>
-            </children>
-        </AnchorPane>
-    </content>
-</ScrollPane>
+<AnchorPane prefHeight="897.0" prefWidth="1461.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.domain.Loja.Controller.HomeController">
+   <children>
+      <VBox prefHeight="724.0" prefWidth="270.0" styleClass="sidebar" stylesheets="@../styles/Home.css" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <Label prefHeight="75.0" prefWidth="300.0" style="-fx-background-color: #00A2D3;" text="Amelia Revendedora">
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <font>
+                  <Font name="Segoe Print" size="18.0" />
+               </font>
+            </Label>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" styleClass="btns">
+               <children>
+                  <Label style="-fx-font-style: #fff;" text="Principal" textFill="#e4e2e2" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets top="15.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" onMouseClicked="#itemBuscarClienteAction" prefHeight="50.0" styleClass="btns">
+               <children>
+                  <Label style="-fx-font-style: #fff;" text="Clientes" textFill="#e4e2e2" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" onMouseClicked="#itemBuscarProdutoAction" prefHeight="50.0" styleClass="btns">
+               <children>
+                  <Label style="-fx-font-style: #fff;" text="Produtos" textFill="#e4e2e2" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" styleClass="btns">
+               <children>
+                  <Label style="-fx-font-style: #fff;" text="Vendas" textFill="#e4e2e2" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" prefHeight="50.0" styleClass="btns">
+               <children>
+                  <Label style="-fx-font-style: #fff;" text="Controle de estoque" textFill="#e4e2e2" HBox.hgrow="ALWAYS">
+                     <HBox.margin>
+                        <Insets left="5.0" />
+                     </HBox.margin>
+                     <font>
+                        <Font size="16.0" />
+                     </font>
+                  </Label>
+               </children>
+               <opaqueInsets>
+                  <Insets />
+               </opaqueInsets>
+               <padding>
+                  <Insets left="10.0" />
+               </padding>
+               <VBox.margin>
+                  <Insets />
+               </VBox.margin>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+   <opaqueInsets>
+      <Insets />
+   </opaqueInsets>
+</AnchorPane>

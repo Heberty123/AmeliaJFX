@@ -15,10 +15,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
@@ -63,8 +62,6 @@ public class CadastroClienteController implements Initializable {
     /* Endereços */
 
     @FXML
-    private AnchorPane anchorPaneEndereco;
-    @FXML
     private TextField txtCEP;
     @FXML
     private Button buscaCEP;
@@ -84,34 +81,8 @@ public class CadastroClienteController implements Initializable {
     private ComboBox<Estados> comboBoxEstado;
     @FXML
     private ComboBox<TipoEntrega> comboBoxTipoEntrega;
-
-    /* Table endereços */
     @FXML
-    private TableView<Endereco> enderecos;
-    @FXML
-    private TableColumn<Endereco, Long> tableColumnId;
-    @FXML
-    private TableColumn<Endereco, String> tableColumnLogradouro;
-    @FXML
-    private TableColumn<Endereco, Integer> tableColumnNumero;
-    @FXML
-    private TableColumn<Endereco, String> tableColumnBairro;
-    @FXML
-    private TableColumn<Endereco, String> tableColumnLocalidade;
-    @FXML
-    private TableColumn<Endereco, String> tableColumnUF;
-    @FXML
-    private TableColumn<Endereco, String> tableColumnCEP;
-    @FXML
-    private TableColumn<Endereco, TipoEntrega> tableColumnTipoEntrega;
-    @FXML
-    private TableColumn<Endereco, String> tableColumnTelefone;
-    @FXML
-    private TableColumn<Endereco, String> tableColumnCelular;
-
-
-
-
+    private GridPane gridAndress;
 
 
 
@@ -125,7 +96,7 @@ public class CadastroClienteController implements Initializable {
 
         if(cliente != null){
             labelIdCliente.setText(String.valueOf(cliente.getId()));
-            anchorPaneEndereco.setDisable(false);
+            gridAndress.setDisable(false);
         }
 
     }
@@ -154,29 +125,11 @@ public class CadastroClienteController implements Initializable {
         endereco.setTelefone(txtTelefone.getText());
         endereco.setCelular(txtCelular.getText());
 
-
-
         clienteService.addEnderecoParaCliente(Long.valueOf(labelIdCliente.getText()), endereco);
 
 
-        initializeTableEnderecos();
-
-
-
     }
 
-    private void initializeNodes(){
-        tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
-        tableColumnLogradouro.setCellValueFactory(new PropertyValueFactory<>("logradouro"));
-        tableColumnNumero.setCellValueFactory(new PropertyValueFactory<>("numero"));
-        tableColumnBairro.setCellValueFactory(new PropertyValueFactory<>("bairro"));
-        tableColumnLocalidade.setCellValueFactory(new PropertyValueFactory<>("localidade"));
-        tableColumnUF.setCellValueFactory(new PropertyValueFactory<>("uf"));
-        tableColumnCEP.setCellValueFactory(new PropertyValueFactory<>("cep"));
-        tableColumnTipoEntrega.setCellValueFactory(new PropertyValueFactory<>("tipoEntrega"));
-        tableColumnTelefone.setCellValueFactory(new PropertyValueFactory<>("telefone"));
-        tableColumnCelular.setCellValueFactory(new PropertyValueFactory<>("celular"));
-    }
 
     private void initializeComboBoxTipoEntrega() {
 
@@ -194,20 +147,11 @@ public class CadastroClienteController implements Initializable {
         comboBoxEstado.setValue(Estados.AC);
     }
 
-    private void initializeTableEnderecos() {
-
-        List<Endereco> listaEnderecos = clienteService.buscarEnderecosPorCliente(Long.valueOf(labelIdCliente.getText()));
-        ObservableList<Endereco> observableList = FXCollections.observableArrayList(listaEnderecos);
-
-        enderecos.setItems(observableList);
-
-    }
 
 
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        initializeNodes();
         upperConstraints.upperFirstLetter(fieldName);
         clienteConstraints.setTextCpf(fieldCPF);
         clienteConstraints.cpfExist(fieldCPF, labelErrorCPF);

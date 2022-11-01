@@ -101,4 +101,15 @@ public class BuscarClienteController implements Initializable {
         clickRowAtTable();
 
     }
+
+    /* Change View */
+
+
+    public void itemBuscarClienteAction() throws IOException {
+        changeView.changeFromCliente("/gui/Cliente/Buscar.fxml", x -> {});
+    }
+
+    public void itemCadastroClienteAction() throws IOException {
+        changeView.changeFromCliente("/gui/Cliente/Cadastro.fxml", x -> {});
+    }
 }

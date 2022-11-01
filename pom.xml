@@ -62,13 +62,13 @@
 			<version>11.1.2</version>
 		</dependency>
 
-
 		<!-- https://mvnrepository.com/artifact/org.openjfx/javafx-fxml -->
 		<dependency>
 			<groupId>org.openjfx</groupId>
 			<artifactId>javafx-fxml</artifactId>
 			<version>20-ea+2</version>
 		</dependency>
+
 
 	</dependencies>
 

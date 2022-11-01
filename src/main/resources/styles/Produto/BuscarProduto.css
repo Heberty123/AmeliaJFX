@@ -1,0 +1,26 @@
+.tableView{
+    -fx-background-color: #65b8a6;
+    -fx-background-radius: 13px;
+    -fx-border-radius: 10px;
+    -fx-border-width: 3px;
+    -fx-border-color: black;
+}
+
+.tableColumnId{
+    -fx-background-color: #b5e8c3;
+}
+
+.tableColumnNome{
+    -fx-background-color: #b5e8c3;
+}
+
+.box-function{
+    -fx-background-color: #88c3b5;
+    -fx-border-width: 0.1px;
+    -fx-border-color: black;
+    -fx-cursor: hand;
+}
+
+.box-function:hover{
+     -fx-background-color: #69a5a4;
+ }

@@ -31,7 +31,7 @@ public class ChangeView {
         AnchorPane newAnchor = loader.load();
 
         Scene mainScene = StageInitializer.getScene();
-        AnchorPane mainAnchor = (AnchorPane) ((ScrollPane) mainScene.getRoot()).getContent();
+        AnchorPane mainAnchor = (AnchorPane) mainScene.getRoot();
 
 
         Node mainMenu = mainAnchor.getChildren().get(0);
@@ -47,5 +47,27 @@ public class ChangeView {
     public void showProduct(String barcode){
         FXMLLoader loader = new FXMLLoader(getClass().getResource(""));
         loader.setControllerFactory(aClass -> applicationContext.getBean(aClass));
+    }
+
+
+    public synchronized <T> void changeFromCliente(String absoluteName, Consumer<T> initializingAction) throws IOException {
+
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
+        loader.setControllerFactory(aClass -> applicationContext.getBean(aClass));
+        AnchorPane newAnchor = loader.load();
+
+        Scene mainScene = StageInitializer.getScene();
+        AnchorPane mainAnchor = (AnchorPane) mainScene.getRoot();
+
+
+        Node sideBar = mainAnchor.getChildren().get(0);
+        Node boxOptions = mainAnchor.getChildren().get(1);
+        mainAnchor.getChildren().clear();
+        mainAnchor.getChildren().addAll(sideBar, boxOptions);
+        mainAnchor.getChildren().addAll(newAnchor.getChildren());
+
+        T controller = loader.getController();
+        initializingAction.accept(controller);
+
     }
 }

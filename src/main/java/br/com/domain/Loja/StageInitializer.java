@@ -6,8 +6,10 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Control;
 import javafx.scene.control.ScrollPane;
+import javafx.scene.image.Image;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -51,9 +53,7 @@ public class StageInitializer implements ApplicationListener<ChartApplication.St
         try {
             FXMLLoader fxmlLoader = new FXMLLoader(chartResource.getURL());
             fxmlLoader.setControllerFactory(aClass -> applicationContext.getBean(aClass));
-            ScrollPane scrollPane = fxmlLoader.load();
-            scrollPane.setFitToHeight(true);
-            scrollPane.setFitToWidth(true);
+            AnchorPane anchorPane = fxmlLoader.load();
             Stage stage = event.getStage();
 
 
@@ -81,7 +81,7 @@ public class StageInitializer implements ApplicationListener<ChartApplication.St
             });
 
 
-            mainScene = new Scene(scrollPane);
+            mainScene = new Scene(anchorPane);
             stage.setScene(mainScene);
             stage.setTitle(applicationTitle);
             stage.setMaximized(true);

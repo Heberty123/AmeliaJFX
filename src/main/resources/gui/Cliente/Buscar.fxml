@@ -1,20 +1,101 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="629.0" prefWidth="811.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.domain.Loja.Controller.Cliente.BuscarClienteController">
+<AnchorPane prefHeight="800.0" prefWidth="1281.0" stylesheets="@../../styles/Produto/BuscarProduto.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.domain.Loja.Controller.Cliente.BuscarClienteController">
    <children>
-      <TextField fx:id="txtPesquisaCliente" layoutX="30.0" layoutY="98.0" prefHeight="35.0" prefWidth="640.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
-      <Label layoutX="37.0" layoutY="73.0" text="Digite o nome aqui" />
-      <TableView fx:id="tableView" layoutX="39.0" layoutY="197.0" prefHeight="356.0" prefWidth="640.0" AnchorPane.bottomAnchor="50.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0">
-        <columns>
-          <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="Id" />
-          <TableColumn fx:id="tableColumnNome" prefWidth="75.0" text="Nome" />
-        </columns>
-      </TableView>
+      <HBox layoutX="300.0" layoutY="25.0" prefHeight="50.0" prefWidth="951.0" style="-fx-border-radius: 5px; -fx-background-radius: 5px; -fx-border-width: 1px; -fx-border-color: black;" styleClass="-" stylesheets="@../../styles/Produto/BuscarProduto.css" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <VBox alignment="TOP_CENTER" onMouseClicked="#itemBuscarClienteAction" prefHeight="50.0" prefWidth="81.0" styleClass="box-function" stylesheets="@../../styles/Produto/BuscarProduto.css">
+               <children>
+                  <Group scaleX="2.0" scaleY="2.0">
+                     <children>
+                        <SVGPath content="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352c79.5 0 144-64.5 144-144s-64.5-144-144-144S64 128.5 64 208s64.5 144 144 144z" scaleX="0.025" scaleY="0.025" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                  </Group>
+                  <Label text="Buscar">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="TOP_CENTER" onMouseClicked="#itemCadastroClienteAction" prefHeight="65.0" prefWidth="98.0" styleClass="box-function" stylesheets="@../../styles/Produto/BuscarProduto.css">
+               <children>
+                  <Group scaleX="2.0" scaleY="2.0">
+                     <children>
+                        <SVGPath content="M208 48c0 26.5-21.5 48-48 48s-48-21.5-48-48s21.5-48 48-48s48 21.5 48 48zM152 352V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V256.9L59.4 304.5c-9.1 15.1-28.8 20-43.9 10.9s-20-28.8-10.9-43.9l58.3-97c17.4-28.9 48.6-46.6 82.3-46.6h29.7c33.7 0 64.9 17.7 82.3 46.6l58.3 97c9.1 15.1 4.2 34.8-10.9 43.9s-34.8 4.2-43.9-10.9L232 256.9V480c0 17.7-14.3 32-32 32s-32-14.3-32-32V352H152z" scaleX="0.025" scaleY="0.025" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                  </Group>
+                  <Label text="Cadastrar">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+            <VBox alignment="TOP_CENTER" prefHeight="50.0" prefWidth="100.0" styleClass="box-function" stylesheets="@../../styles/Produto/BuscarProduto.css">
+               <children>
+                  <Group scaleX="1.5" scaleY="1.5">
+                     <children>
+                        <SVGPath content="M135.2 17.7L128 32H32C14.3 32 0 46.3 0 64S14.3 96 32 96H416c17.7 0 32-14.3 32-32s-14.3-32-32-32H320l-7.2-14.3C307.4 6.8 296.3 0 284.2 0H163.8c-12.1 0-23.2 6.8-28.6 17.7zM416 128H32L53.2 467c1.6 25.3 22.6 45 47.9 45H346.9c25.3 0 46.3-19.7 47.9-45L416 128z" scaleX="0.025" scaleY="0.025" />
+                     </children>
+                     <VBox.margin>
+                        <Insets bottom="15.0" />
+                     </VBox.margin>
+                  </Group>
+                  <Label text="Excluir">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </Label>
+               </children>
+               <padding>
+                  <Insets top="10.0" />
+               </padding>
+            </VBox>
+         </children>
+      </HBox>
+      <VBox layoutX="273.0" layoutY="301.0" prefHeight="638.0" prefWidth="951.0" AnchorPane.bottomAnchor="30.0" AnchorPane.leftAnchor="300.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="218.0">
+         <children>
+            <Label text="Nome do cliente">
+               <VBox.margin>
+                  <Insets bottom="20.0" />
+               </VBox.margin>
+            </Label>
+            <TextField fx:id="txtPesquisaCliente" prefHeight="35.0" prefWidth="640.0" promptText="Digite qualquer nome do cliente" />
+            <TableView fx:id="tableView" prefHeight="700.0" prefWidth="951.0" styleClass="tableView" stylesheets="@../../styles/Produto/BuscarProduto.css">
+              <columns>
+                <TableColumn fx:id="tableColumnId" prefWidth="75.0" styleClass="tableColumnId" text="Id" />
+                <TableColumn fx:id="tableColumnNome" prefWidth="100.0" styleClass="tableColumnNome" text="Nome" />
+              </columns>
+               <VBox.margin>
+                  <Insets top="50.0" />
+               </VBox.margin>
+            </TableView>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

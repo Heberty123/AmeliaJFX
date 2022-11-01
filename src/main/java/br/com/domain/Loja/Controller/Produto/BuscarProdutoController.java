@@ -52,6 +52,7 @@ public class BuscarProdutoController implements Initializable {
     @FXML
     private TableView<Produto> tableView;
 
+
     /* Table columns */
 
     @FXML
@@ -168,4 +169,5 @@ public class BuscarProdutoController implements Initializable {
         tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
         tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
     }
+
 }

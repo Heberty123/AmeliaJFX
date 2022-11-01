@@ -35,10 +35,6 @@ public class HomeController {
     private ChangeView changeView;
 
 
-    public void itemCadastroClienteAction() throws IOException {
-        changeView.change("/gui/Cliente/Cadastro.fxml", x -> {});
-    }
-
     public void itemBuscarClienteAction() throws IOException {
         changeView.change("/gui/Cliente/Buscar.fxml", x -> {});
     }

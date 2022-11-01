@@ -1,62 +1,184 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ComboBox?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.ListView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="" prefHeight="885.0" prefWidth="1310.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.domain.Loja.Controller.Cliente.CadastroClienteController">
+<AnchorPane fx:id="" prefHeight="900.0" prefWidth="1353.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="br.com.domain.Loja.Controller.Cliente.CadastroClienteController">
    <children>
-      <TextField fx:id="fieldName" layoutX="43.0" layoutY="107.0" prefHeight="25.0" prefWidth="262.0" />
-      <TextField fx:id="fieldCPF" layoutX="43.0" layoutY="161.0" />
-      <Label layoutX="43.0" layoutY="82.0" text="Name" AnchorPane.leftAnchor="43.0" />
-      <Label layoutX="43.0" layoutY="139.0" text="cpf" />
-      <Button fx:id="buttonSave" layoutX="211.0" layoutY="161.0" mnemonicParsing="false" onAction="#buttonSaveAction" text="Salvar" />
-      <AnchorPane fx:id="anchorPaneEndereco" disable="true" layoutX="237.0" layoutY="443.0" prefHeight="573.0" prefWidth="1310.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
-         <children>
-            <TextField fx:id="txtLogradouro" layoutX="309.0" layoutY="45.0" prefHeight="25.0" prefWidth="307.0" />
-            <Label layoutX="309.0" layoutY="21.0" text="Logradouro" />
-            <TextField fx:id="txtCelular" layoutX="775.0" layoutY="45.0" prefHeight="25.0" prefWidth="171.0" />
-            <Label layoutX="777.0" layoutY="21.0" text="Celular" />
-            <TextField fx:id="txtBairro" layoutX="47.0" layoutY="108.0" prefHeight="25.0" prefWidth="262.0" />
-            <Label layoutX="47.0" layoutY="84.0" text="Bairro" />
-            <TextField fx:id="txtCidade" layoutX="326.0" layoutY="108.0" />
-            <Label layoutX="326.0" layoutY="84.0" text="Cidade" />
-            <TableView fx:id="enderecos" layoutX="29.0" layoutY="151.0" prefHeight="383.0" prefWidth="1250.0">
-              <columns>
-                <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="Id" />
-                <TableColumn fx:id="tableColumnLogradouro" prefWidth="220.0" text="Logradouro" />
-                  <TableColumn fx:id="tableColumnNumero" prefWidth="75.0" text="Numero" />
-                  <TableColumn fx:id="tableColumnBairro" prefWidth="200.0" text="Bairro" />
-                  <TableColumn fx:id="tableColumnLocalidade" prefWidth="150.0" text="Localidade" />
-                  <TableColumn fx:id="tableColumnUF" prefWidth="75.0" text="UF" />
-                  <TableColumn fx:id="tableColumnCEP" prefWidth="100.0" text="CEP" />
-                  <TableColumn fx:id="tableColumnTipoEntrega" prefWidth="110.0" text="Tipo de Entrega" />
-                  <TableColumn fx:id="tableColumnTelefone" prefWidth="120.0" text="Telefone" />
-                  <TableColumn fx:id="tableColumnCelular" prefWidth="120.0" text="Celular" />
-              </columns>
-            </TableView>
-            <TextField fx:id="txtCEP" layoutX="47.0" layoutY="45.0" />
-            <Label layoutX="47.0" layoutY="21.0" text="CEP" />
-            <Button layoutX="211.0" layoutY="45.0" mnemonicParsing="false" onAction="#buscaCEP" text="Buscar" />
-            <Label layoutX="504.0" layoutY="84.0" text="Estado" />
-            <Button layoutX="1164.0" layoutY="109.0" mnemonicParsing="false" onAction="#salvarEndereco" text="Salvar" />
-            <TextField fx:id="txtTelefone" layoutX="969.0" layoutY="45.0" prefHeight="25.0" prefWidth="171.0" />
-            <Label layoutX="971.0" layoutY="21.0" text="Telefone" />
-            <Label layoutX="668.0" layoutY="84.0" text="Tipo entrega" />
-            <ComboBox fx:id="comboBoxTipoEntrega" layoutX="667.0" layoutY="109.0" prefWidth="150.0" />
-            <ComboBox fx:id="comboBoxEstado" layoutX="500.0" layoutY="108.0" prefWidth="150.0" />
-            <TextField fx:id="txtNumero" layoutX="645.0" layoutY="45.0" prefHeight="25.0" prefWidth="102.0" />
-            <Label layoutX="653.0" layoutY="21.0" text="Número" />
-            <TextField fx:id="txtCelular2" layoutX="837.0" layoutY="109.0" prefHeight="25.0" prefWidth="307.0" />
-            <Label layoutX="837.0" layoutY="84.0" text="Descrição" />
-         </children>
-      </AnchorPane>
-      <Label layoutX="43.0" layoutY="48.0" text="Id: " />
       <Label fx:id="labelIdCliente" layoutX="65.0" layoutY="48.0" />
       <Label fx:id="labelErrorCPF" layoutX="211.0" layoutY="165.0" />
+      <VBox alignment="CENTER" layoutX="297.0" layoutY="149.0" minHeight="650.0" minWidth="499.0" prefHeight="731.0" prefWidth="1023.0" AnchorPane.bottomAnchor="20.0" AnchorPane.leftAnchor="297.0" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="120.0">
+         <children>
+            <GridPane fx:id="gridCadastro" hgap="10.0" maxHeight="1.7976931348623157E308" maxWidth="800.0" prefHeight="100.0" vgap="8.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="383.0" minWidth="10.0" prefWidth="213.0" />
+                <ColumnConstraints hgrow="SOMETIMES" maxWidth="530.0" minWidth="10.0" prefWidth="501.0" />
+              </columnConstraints>
+              <rowConstraints>
+                <RowConstraints maxHeight="25.0" minHeight="0.0" prefHeight="16.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="50.0" minHeight="0.0" prefHeight="17.0" vgrow="SOMETIMES" />
+                <RowConstraints maxHeight="64.0" minHeight="10.0" prefHeight="28.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="63.0" minHeight="10.0" prefHeight="27.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+               <children>
+                  <Label text="Id: " />
+                  <Label text="Name" GridPane.rowIndex="1" />
+                  <TextField fx:id="fieldName" prefHeight="25.0" prefWidth="278.0" GridPane.rowIndex="2" />
+                  <Label text="cpf" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <TextField fx:id="fieldCPF" prefHeight="25.0" prefWidth="427.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Button fx:id="buttonSave" mnemonicParsing="false" onAction="#buttonSaveAction" text="Salvar" GridPane.rowIndex="3" />
+               </children>
+               <VBox.margin>
+                  <Insets bottom="15.0" />
+               </VBox.margin>
+            </GridPane>
+            <GridPane fx:id="gridAndress" disable="true" hgap="5.0" maxHeight="450.0" maxWidth="800.0" minHeight="159.0" minWidth="495.0" prefHeight="162.0" prefWidth="651.0" vgap="5.0">
+              <columnConstraints>
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="196.0" minWidth="10.0" prefWidth="93.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="196.0" minWidth="2.0" prefWidth="2.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="10.0" prefWidth="81.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="193.0" minWidth="3.0" prefWidth="23.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="291.0" minWidth="5.0" prefWidth="11.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="8.0" prefWidth="67.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="38.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="91.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="10.0" prefWidth="124.0" />
+                  <ColumnConstraints hgrow="SOMETIMES" maxWidth="284.0" minWidth="4.0" prefWidth="76.0" />
+                  <ColumnConstraints />
+                  <ColumnConstraints />
+              </columnConstraints>
+              <rowConstraints>
+                  <RowConstraints maxHeight="106.0" minHeight="0.0" prefHeight="13.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="155.0" minHeight="0.0" prefHeight="31.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="178.0" minHeight="5.0" prefHeight="18.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="191.0" minHeight="0.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="191.0" minHeight="10.0" prefHeight="17.0" vgrow="SOMETIMES" />
+                  <RowConstraints maxHeight="191.0" minHeight="10.0" prefHeight="34.0" vgrow="SOMETIMES" />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+                  <RowConstraints />
+              </rowConstraints>
+               <children>
+                  <Label maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="7.0" prefWidth="105.0" text="CEP">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <Label maxHeight="1.7976931348623157E308" prefHeight="17.0" prefWidth="70.0" text="Logradouro" GridPane.columnIndex="3" GridPane.columnSpan="3">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <Label maxHeight="1.7976931348623157E308" text="Número" GridPane.columnIndex="9">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <Label maxHeight="1.7976931348623157E308" text="Celular" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <Label maxHeight="1.7976931348623157E308" text="Telefone" GridPane.columnIndex="2" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField fx:id="txtCEP" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="116.0" GridPane.columnSpan="2" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </TextField>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#buscaCEP" prefHeight="25.0" prefWidth="72.0" text="Buscar" GridPane.columnIndex="2" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Button>
+                  <TextField fx:id="txtLogradouro" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="167.0" GridPane.columnIndex="3" GridPane.columnSpan="6" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label maxHeight="1.7976931348623157E308" prefHeight="17.0" prefWidth="111.0" text="Bairro" GridPane.rowIndex="2" />
+                  <TextField fx:id="txtBairro" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="183.0" GridPane.columnSpan="5" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label maxHeight="1.7976931348623157E308" text="Estado" GridPane.columnIndex="7" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <ComboBox fx:id="comboBoxEstado" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="92.0" GridPane.columnIndex="7" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </ComboBox>
+                  <TextField fx:id="txtNumero" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="63.0" GridPane.columnIndex="9" GridPane.rowIndex="1">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="txtCelular" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="140.0" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </TextField>
+                  <TextField fx:id="txtTelefone" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="137.0" GridPane.columnIndex="2" GridPane.columnSpan="2" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label maxHeight="1.7976931348623157E308" text="Descrição" GridPane.columnIndex="4" GridPane.columnSpan="2" GridPane.rowIndex="4">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField fx:id="txtCelular2" maxWidth="1.7976931348623157E308" GridPane.columnIndex="4" GridPane.columnSpan="5" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </TextField>
+                  <Button maxWidth="1.7976931348623157E308" mnemonicParsing="false" onAction="#salvarEndereco" text="Salvar" GridPane.columnIndex="9" GridPane.rowIndex="5">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Button>
+                  <Label maxHeight="1.7976931348623157E308" text="Cidade" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.rowIndex="2">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </Label>
+                  <TextField fx:id="txtCidade" maxWidth="1.7976931348623157E308" GridPane.columnIndex="5" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </TextField>
+                  <Label maxHeight="1.7976931348623157E308" text="Tipo entrega" GridPane.columnIndex="8" GridPane.rowIndex="2" />
+                  <ComboBox fx:id="comboBoxTipoEntrega" maxWidth="1.7976931348623157E308" prefHeight="25.0" prefWidth="242.0" GridPane.columnIndex="8" GridPane.columnSpan="2" GridPane.rowIndex="3">
+                     <GridPane.margin>
+                        <Insets />
+                     </GridPane.margin>
+                  </ComboBox>
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </GridPane>
+            <ListView maxHeight="300.0" maxWidth="800.0" prefHeight="359.0" prefWidth="630.0" />
+         </children>
+      </VBox>
    </children>
 </AnchorPane>
