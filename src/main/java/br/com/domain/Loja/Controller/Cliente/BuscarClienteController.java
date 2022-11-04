@@ -69,7 +69,7 @@ public class BuscarClienteController implements Initializable {
                             Cliente cliente = row.getItem();
 
                             try {
-                                changeView.change("/gui/Cliente/Cliente.fxml", (ClienteController controller) -> {
+                                changeView.changeInside("/gui/Cliente/Cliente.fxml", (ClienteController controller) -> {
                                     controller.setCliente(cliente);
                                     try {
                                         controller.updateView();
@@ -106,10 +106,10 @@ public class BuscarClienteController implements Initializable {
 
 
     public void itemBuscarClienteAction() throws IOException {
-        changeView.changeFromCliente("/gui/Cliente/Buscar.fxml", x -> {});
+        changeView.changeInside("/gui/Cliente/Buscar.fxml", x -> {});
     }
 
     public void itemCadastroClienteAction() throws IOException {
-        changeView.changeFromCliente("/gui/Cliente/Cadastro.fxml", x -> {});
+        changeView.changeInside("/gui/Cliente/Cadastro.fxml", x -> {});
     }
 }

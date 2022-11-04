@@ -86,10 +86,10 @@
                </VBox.margin>
             </Label>
             <TextField fx:id="txtPesquisaCliente" prefHeight="35.0" prefWidth="640.0" promptText="Digite qualquer nome do cliente" />
-            <TableView fx:id="tableView" prefHeight="700.0" prefWidth="951.0" styleClass="tableView" stylesheets="@../../styles/Produto/BuscarProduto.css">
+            <TableView fx:id="tableView" prefHeight="700.0" prefWidth="951.0" stylesheets="@../../styles/Produto/BuscarProduto.css">
               <columns>
-                <TableColumn fx:id="tableColumnId" prefWidth="75.0" styleClass="tableColumnId" text="Id" />
-                <TableColumn fx:id="tableColumnNome" prefWidth="100.0" styleClass="tableColumnNome" text="Nome" />
+                <TableColumn fx:id="tableColumnId" prefWidth="75.0" text="Id" />
+                <TableColumn fx:id="tableColumnNome" prefWidth="100.0" text="Nome" />
               </columns>
                <VBox.margin>
                   <Insets top="50.0" />

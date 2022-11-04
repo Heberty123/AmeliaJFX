@@ -39,10 +39,6 @@ public class HomeController {
         changeView.change("/gui/Cliente/Buscar.fxml", x -> {});
     }
 
-    public void itemCadastroProdutoAction() throws IOException {
-        changeView.change("/gui/Produto/Cadastro.fxml", x -> {});
-    }
-
     public void itemBuscarProdutoAction() throws IOException {
         changeView.change("/gui/Produto/Buscar.fxml", x -> {});
     }

@@ -13,6 +13,8 @@ import javafx.collections.FXCollections;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.MouseEvent;
@@ -67,6 +69,7 @@ public class BuscarProdutoController implements Initializable {
             @Override
             public TableRow<Produto> call(TableView<Produto> param) {
                 TableRow<Produto> row = new TableRow<Produto>();
+                row.setPadding(new Insets(7, 7, 7, 0));
                 row.setOnMouseClicked(new EventHandler<MouseEvent>(){
 
                     @Override
@@ -76,7 +79,7 @@ public class BuscarProdutoController implements Initializable {
                             Produto produto = row.getItem();
 
                             try {
-                                changeView.change("/gui/Produto/Produto.fxml", (ProdutoController controller) -> {
+                                changeView.changeInside("/gui/Produto/Produto.fxml", (ProdutoController controller) -> {
                                     controller.setProduto(produto);
                                     controller.updateView();
                                 });
@@ -100,7 +103,7 @@ public class BuscarProdutoController implements Initializable {
 
                 TextFlow txtFlow = new TextFlow();
                 txtFlow.setPrefHeight(txtFlow.prefHeight(tableColumnNome.getWidth()) + 4);
-                Font f = Font.font("Verdana", FontWeight.BOLD, 12);
+                Font f = Font.font("Verdana", FontWeight.NORMAL, 12);
 
 
                 /* ---------------------------------------------------------------------- */
@@ -160,7 +163,7 @@ public class BuscarProdutoController implements Initializable {
         initializeNodes();
         clickRowAtTable();
         setColorsAtContaingText();
-        tableColumnNome.setStyle("-fx-font: 24 arial;");
+
     }
 
 
@@ -169,5 +172,15 @@ public class BuscarProdutoController implements Initializable {
         tableColumnId.setCellValueFactory(new PropertyValueFactory<>("id"));
         tableColumnNome.setCellValueFactory(new PropertyValueFactory<>("nome"));
     }
+
+
+    public void itemBuscarProdutoAction() throws IOException {
+        changeView.changeInside("/gui/Produto/Buscar.fxml", x -> {});
+    }
+
+    public void itemCadastroProdutoAction() throws IOException {
+        changeView.changeInside("/gui/Produto/Cadastro.fxml", x -> {});
+    }
+
 
 }

@@ -31,8 +31,6 @@ public class PesquisaRealProduto {
             if(!(newValue.isBlank())){
                 List<Produto> produtos = produtoRepository.findProdutoByNomeContaining(newValue.toUpperCase());
 
-                System.out.println(produtos);
-
                 try {
                     caseSensitive.changeToLowerToView(produtos);
                 } catch (IllegalAccessException e) {

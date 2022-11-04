@@ -50,7 +50,7 @@ public class ChangeView {
     }
 
 
-    public synchronized <T> void changeFromCliente(String absoluteName, Consumer<T> initializingAction) throws IOException {
+    public synchronized <T> void changeInside(String absoluteName, Consumer<T> initializingAction) throws IOException {
 
         FXMLLoader loader = new FXMLLoader(getClass().getResource(absoluteName));
         loader.setControllerFactory(aClass -> applicationContext.getBean(aClass));
